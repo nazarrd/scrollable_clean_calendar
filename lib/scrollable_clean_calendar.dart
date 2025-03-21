@@ -86,6 +86,9 @@ class ScrollableCleanCalendar extends StatefulWidget {
   /// The controller of ScrollableCleanCalendar
   final CleanCalendarController calendarController;
 
+  /// The decoration of disable day text, default is TextDecoration.lineThrough
+  final TextDecoration? dayDisableTextDecoration;
+
   const ScrollableCleanCalendar({
     this.locale = 'en',
     this.scrollController,
@@ -112,6 +115,7 @@ class ScrollableCleanCalendar extends StatefulWidget {
     this.dayAspectRatio,
     this.dayRadius = 6,
     required this.calendarController,
+    this.dayDisableTextDecoration,
   }) : assert(layout != null ||
             (monthBuilder != null &&
                 weekdayBuilder != null &&
@@ -222,6 +226,7 @@ class _ScrollableCleanCalendarState extends State<ScrollableCleanCalendar> {
                   radius: widget.dayRadius,
                   textStyle: widget.dayTextStyle,
                   aspectRatio: widget.dayAspectRatio,
+                  dayDisableTextDecoration: widget.dayDisableTextDecoration,
                 );
               },
             )

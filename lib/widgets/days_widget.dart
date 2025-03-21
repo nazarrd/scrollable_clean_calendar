@@ -22,6 +22,7 @@ class DaysWidget extends StatelessWidget {
   final double radius;
   final TextStyle? textStyle;
   final double? aspectRatio;
+  final TextDecoration? dayDisableTextDecoration;
 
   const DaysWidget({
     Key? key,
@@ -39,6 +40,7 @@ class DaysWidget extends StatelessWidget {
     required this.radius,
     required this.textStyle,
     required this.aspectRatio,
+    this.dayDisableTextDecoration = TextDecoration.lineThrough,
   }) : super(key: key);
 
   @override
@@ -189,7 +191,7 @@ class DaysWidget extends StatelessWidget {
       txtStyle = (textStyle ?? Theme.of(context).textTheme.bodyLarge)!.copyWith(
         color: dayDisableColor ??
             Theme.of(context).colorScheme.onSurface.withOpacity(.5),
-        decoration: TextDecoration.lineThrough,
+        decoration: dayDisableTextDecoration,
       );
     }
 
